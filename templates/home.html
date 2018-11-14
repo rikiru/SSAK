@@ -1,0 +1,10 @@
+{%extends "layout.html"%}
+{%block content%}
+	<h3>Weight on shelf : {{log.Weight}} </h3>
+	<h3>Check data : {{log.Data}} </h3>
+	<h3>Difrence : {{log.Dif}} </h3>
+	<h3>Known Mac adress in Range : {{Num}} </h3>
+	{%for mac in macs%}
+	<p> Name : {{mac.Name}} Mac Address {{mac.MacAdress}}</p>
+	{%endfor%}
+{%endblock content%}

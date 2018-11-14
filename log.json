@@ -1,1 +1,1 @@
-{"log": []}
+{"log": [{"Difrence": 0, "Date": "2018-11-14 14:30:16.195713", "Num": 2, "MacAddresses": [{"MacAdress": "1234567890AB", "Name": "C1"}, {"MacAdress": "ABCDEF123456", "Name": "C2"}], "Weight": 100}, {"Difrence": 0, "Date": "2018-11-14 14:33:46.476401", "Num": 2, "MacAddresses": [{"MacAdress": "1234567890AB", "Name": "C1"}, {"MacAdress": "ABCDEF123456", "Name": "C2"}], "Weight": 100}]}

@@ -8,24 +8,24 @@ logged = False
 
 def getData():
 	weight = 100
-	data = str(datetime.datetime.utcnow())
+	date = str(datetime.datetime.utcnow())
 	difrence = 0 - weight
 	addresses = [{"MacAdress": "1234567890AB", "Name": "C1"}, {"MacAdress": "ABCDEF123456", "Name": "C2"}]
 	num =2
-	json_data=open("log.json").read()
-	if(json_data):
-		data = json.loads(json_data)
 	json_data=open("last.json").read()
-	if(json_data):
-		new = json.loads(json_data)
-		difrence = new['Weight'] - weight
-		data['log'].append(new)
-	with open('log.json', 'w') as outfile:
-    		json.dump(data, outfile)
-	data = {'Weight':weight,"Data":data,"Difrence":difrence, "MacAddresses":addresses,"Num":num}	
+	data = json.loads(json_data)
+	json_data2=open("log.json").read()
+	data2 = json.loads(json_data2)
+	data2['log'].append(data)
+	data['Difrence'] = data['Weight'] - weight
+	data['Weight'] = weight
+	data['MacAddresses'] = addresses
+	data['Num'] = num
+	data['Date'] = date
 	with open('last.json', 'w') as outfile:
     		json.dump(data, outfile)
-
+	with open('log.json', 'w') as outfile:
+ 		json.dump(data2, outfile)
 @app.route("/")
 @app.route("/home")
 def home():
@@ -42,7 +42,9 @@ def devices():
 	return render_template('devices.html',logged = logged,devices=data['Devices'])
 @app.route("/logs")
 def logs():
-	return render_template('logs.html',logged = logged)
+	json_data2=open("log.json").read()
+	data = json.loads(json_data)
+	return render_template('logs.html',logged = logged,logs = data)
 
 @app.route("/login",methods=["POST","GET"])
 def login():
@@ -100,6 +102,7 @@ def deldevice(mac):
 	return redirect(url_for('home'))
 
 if __name__ == '__main__':
+	getData()
 	app.run(debug=True)
 
 

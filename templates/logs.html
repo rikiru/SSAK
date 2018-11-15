@@ -3,17 +3,33 @@
 	<table class="table">
 	  <thead>
 	    <tr>
-      		<th scope="col">Name</th>
-      		<th scope="col">Mac Address</th>
-		<th scope="col"><a class="btn btn-outline-primary" href={{url_for('addevice')}}>Add Device</a></th>
+      		<th scope="col">Date</th>
+      		<th scope="col">Weight</th>
+		<th scope="col">Diffrence</th>
+		<th scope="col">Weight</th>
+		<th scope="col">Number Of Devices</th>
+		<th scope="col">Mac Addresses</th>
     	    </tr>
   	   </thead>
 	   <tbody>
-	{%for device in devices%}
+	{%for log in logs.log%}
     <tr>
-      <td>{{device.Name}}</td>
-      <td>{{device.MacAdress}}</td>
-	<td><a class="btn btn-outline-primary" href={{url_for('deldevice')}}/{{device.MacAdress}}>Delete Device</td>
+      <td>{{log.Date}}</td>
+      <td>{{log.Weight}}</td>
+	<td>{{log.Difrence}}</td>
+	<td>{{log.Weight}}</td>
+	<td>{{log.Num}}</td>
+	<td>
+	<div class="dropdown">
+ 	 <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Mac Addresses
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	{% for mac in log.MacAddresses %}
+	<p>Name : {{mac.Name}} <br>Mac : {{mac.MacAdress}}</p>
+	{%endfor%}
+  </div>
+</div></td>
     </tr>
 	{%endfor%}
   </tbody>

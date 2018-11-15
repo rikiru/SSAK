@@ -42,7 +42,7 @@ def devices():
 	return render_template('devices.html',logged = logged,devices=data['Devices'])
 @app.route("/logs")
 def logs():
-	json_data2=open("log.json").read()
+	json_data=open("log.json").read()
 	data = json.loads(json_data)
 	return render_template('logs.html',logged = logged,logs = data)
 

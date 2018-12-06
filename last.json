@@ -1,1 +1,17 @@
-{"Difrence": 100, "Date": "2018-12-02 18:55:06.451026", "Num": 2, "MacAddresses": [{"MacAdress": "1234567890AB", "Name": "C1"}, {"MacAdress": "ABCDEF123456", "Name": "C2"}], "Weight": 100,"Steal": "Cokolwiek"}
+{
+    "Weight": 39.4, 
+    "Difrence": 0.0, 
+    "Num": 0, 
+    "MacAddresses": [
+        {
+            "MacAdress": "1234567890AB", 
+            "Name": "C1"
+        }, 
+        {
+            "MacAdress": "ABCDEF123456", 
+            "Name": "C2"
+        }
+    ], 
+    "Date": "2018-12-06 22:39:41.315664", 
+    "Steal": "nothing is happening"
+}

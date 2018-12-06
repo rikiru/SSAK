@@ -19,11 +19,13 @@ class checkWeight():
 	thread.start()
     def run(self):
 	curentData = {"Weight":0}
-        while True:     
-		json_data=open("last.json").read()
-		data = json.loads(json_data)
-		if data['Weight'] != curentData['Weight'] :
-			writeDataToLog()
-			curentData = data
-			print "changed"
-	time.sleep(self.interval)
+        while True: 
+		try :    
+			json_data=open("last.json").read()
+			data = json.loads(json_data)
+			if data['Weight'] != curentData['Weight'] :
+				writeDataToLog()
+				curentData = data
+				print "changed"
+		except:
+			print "Load Problem"  

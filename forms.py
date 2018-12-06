@@ -16,6 +16,6 @@ class changeform(FlaskForm):
 	submit=SubmitField('Change')
 
 class adddevice(FlaskForm):
-	adresmac = StringField('Adres Mac',validators=[DataRequired(),Length(min=12),Regexp('^[0-9A-F]+$')])
+	adresmac = StringField('Adres Mac',validators=[DataRequired(),Regexp('^[0-9A-F]{2}[:]{1}[0-9A-F]{2}[:]{1}[0-9A-F]{2}[:]{1}[0-9A-F]{2}[:]{1}[0-9A-F]{2}[:]{1}[0-9A-F]{2}$')])
 	name = StringField('Name',validators=[DataRequired()])
 	submit=SubmitField('Add')

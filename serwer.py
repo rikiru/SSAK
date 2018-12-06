@@ -99,7 +99,8 @@ def addevice():
 		with open('config.json', 'w') as outfile:
     			json.dump(data, outfile)
 		flash(u'Device added','success')
-		return redirect(url_for('home'))
+		return redirect(url_for('devices'))
+	flash(u'Mac address have to be 12 Hexadecimal Characters [0-9,A-F]','warning')
 	return render_template('adddevice.html', form=form,logged = logged)
 
 @app.route("/deldevice",methods=["POST","GET"])

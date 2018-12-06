@@ -7,4 +7,6 @@
 	{%for mac in log.MacAddresses%}
 	<p>Name : {{mac.Name}} Mac Address {{mac.MacAdress}}</p>
 	{%endfor%}
+	<div class="alert alert-danger alert-dismissible text-center"><h1>{{log.Steal}}</h1>
+</div>
 {%endblock content%}

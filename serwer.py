@@ -43,6 +43,7 @@ def logs():
 	logged = session['logged']
 	json_data=open("log.json").read()
 	data = json.loads(json_data)
+	data['log'] = data['log'][::-1]
 	return render_template('logs.html',logged = logged,logs = data)
 
 @app.route("/login",methods=["POST","GET"])
